@@ -17,7 +17,7 @@ By building this program, we applied core concepts from our **Data Structures an
 
 ---
 
-## ✈️ Inspiration: Finland Trip
+## Inspiration: Finland Trip
 
 Our spring break trip to **Lapland, Finland** involves multiple destinations, activities, and weather conditions. We wanted a realistic, practical system to:
 
@@ -29,7 +29,7 @@ This project is not only a class assignment but also a tool we will actually use
 
 ---
 
-## 🧱 Clean Architecture
+## Clean Architecture
 
 We designed the system using a **layered approach**:
 
@@ -71,7 +71,7 @@ Wraps each linked list and provides meaningful operations:
 
 ---
 
-## 🛠️ Features
+## Features
 
 ### Packing List Management
 
@@ -95,7 +95,7 @@ Wraps each linked list and provides meaningful operations:
 
 ---
 
-## 💡 Concepts Applied
+## Concepts Applied
 
 ### Singly Linked List
 - Efficient insertion/removal of packing items  
@@ -122,7 +122,7 @@ Wraps each linked list and provides meaningful operations:
 
 ---
 
-## 📂 File Structure
+## File Structure
 
 GroupNumber/
 │
@@ -149,7 +149,7 @@ GroupNumber/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### Compile all code:
 ```bash
@@ -165,7 +165,7 @@ Main Menu → Packing, Trips, Outfit Rotation
 
 Submenus allow adding, removing, rotating, and displaying items
 
-🖥️ Example Console Interaction
+Example Console Interaction
 
 Main Menu
 
@@ -194,7 +194,6 @@ Trip History → Display Trips Forward
 Trip History:
 1. Paris | 2026-03-01 to 2026-03-07 | 5 items packed
 2. Tokyo | 2026-04-10 to 2026-04-15 | 7 items packed
-
 
 Outfit Rotation → Show Current Outfit
 
