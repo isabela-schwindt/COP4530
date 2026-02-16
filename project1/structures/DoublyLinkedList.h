@@ -6,33 +6,17 @@
 using namespace std;
 
 template <typename T>
-struct Node {
-    T data;
-    Node<T>* next;
-    Node<T>* prev; // not used in singly, but kept for compatibility
-
-    Node() {
-        next = nullptr;
-        prev = nullptr;
-    }
-
-    Node(T value) {
-        data = value;
-        next = nullptr;
-        prev = nullptr;
-    }
-};
-
-template <typename T>
-class SinglyLinkedList {
+class DoublyLinkedList {
 private:
     Node<T>* head;
+    Node<T>* tail;
     int count;
 
 public:
     // Constructor
-    SinglyLinkedList() {
+    DoublyLinkedList() {
         head = nullptr;
+        tail = nullptr;
         count = 0;
     }
 
@@ -41,80 +25,63 @@ public:
         Node<T>* newNode = new Node<T>(value);
 
         if (head == nullptr) {
-            head = newNode;
+            head = tail = newNode;
         } else {
-            Node<T>* temp = head;
-            while (temp->next != nullptr) {
-                temp = temp->next;
-            }
-            temp->next = newNode;
+            tail->next = newNode;
+            newNode->prev = tail;
+            tail = newNode;
         }
 
         count++;
     }
 
-    // Display list
-    void display() {
+    // Display forward
+    void displayForward() {
         Node<T>* temp = head;
 
         while (temp != nullptr) {
-            cout << temp->data << " -> ";
+            cout << temp->data << " <-> ";
             temp = temp->next;
         }
         cout << "NULL" << endl;
     }
 
-    // Return size
-    int size() {
-        return count;
-    }
+    // Display backward
+    void displayBackward() {
+        Node<T>* temp = tail;
 
-    // Remove by value
-    void removeByValue(T value) {
-        if (head == nullptr) return;
-
-        // If head needs to be removed
-        if (head->data == value) {
-            Node<T>* temp = head;
-            head = head->next;
-            delete temp;
-            count--;
-            return;
+        while (temp != nullptr) {
+            cout << temp->data << " <-> ";
+            temp = temp->prev;
         }
-
-        Node<T>* current = head;
-
-        while (current->next != nullptr) {
-            if (current->next->data == value) {
-                Node<T>* temp = current->next;
-                current->next = temp->next;
-                delete temp;
-                count--;
-                return;
-            }
-            current = current->next;
-        }
+        cout << "NULL" << endl;
     }
 
     // Remove last node
     void removeLast() {
-        if (head == nullptr) return;
+        if (tail == nullptr) return;
 
-        if (head->next == nullptr) {
-            delete head;
+        Node<T>* temp = tail;
+        tail = tail->prev;
+
+        if (tail != nullptr) {
+            tail->next = nullptr;
+        } else {
             head = nullptr;
-            count--;
-            return;
         }
 
-        Node<T>* temp = head;
-        while (temp->next->next != nullptr) {
-            temp = temp->next;
-        }
-
-        delete temp->next;
-        temp->next = nullptr;
+        delete temp;
         count--;
+    }
+
+    // Check if empty
+    bool isEmpty() const {
+        return count == 0;
+    }
+
+    // Get size
+    int size() const {
+        return count;
     }
 
     // Clear entire list
@@ -124,6 +91,7 @@ public:
             head = head->next;
             delete temp;
         }
+        tail = nullptr;
         count = 0;
     }
 };
