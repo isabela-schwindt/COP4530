@@ -124,9 +124,9 @@ Wraps each linked list and provides meaningful operations:
 
 ## File Structure
 
-GroupNumber/
+project1/
 │
-├── main.cpp # Interactive front-end menu
+├── main.cpp 
 ├── domain/
 │ ├── PackingItem.h
 │ ├── TripRecord.h

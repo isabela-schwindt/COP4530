@@ -12,7 +12,7 @@
 
 using namespace std;
 
-// -------------------- PACKING MENU --------------------
+// PACKING MENU
 void packingMenu(PackingService &packing) {
     int choice;
     do {
@@ -66,7 +66,7 @@ void packingMenu(PackingService &packing) {
     } while(choice != 0);
 }
 
-// -------------------- TRIP HISTORY MENU --------------------
+// TRIP HISTORY MENU 
 void tripMenu(TripHistoryService &trips) {
     int choice;
     do {
@@ -114,7 +114,7 @@ void tripMenu(TripHistoryService &trips) {
     } while(choice != 0);
 }
 
-// -------------------- OUTFIT ROTATION MENU --------------------
+// OUTFIT ROTATION MENU 
 void outfitMenu(OutfitRotationService &outfits) {
     int choice;
     do {
@@ -162,7 +162,7 @@ void outfitMenu(OutfitRotationService &outfits) {
     } while(choice != 0);
 }
 
-// -------------------- MAIN MENU --------------------
+//  MAIN MENU
 int main() {
     PackingService packing;
     TripHistoryService trips;

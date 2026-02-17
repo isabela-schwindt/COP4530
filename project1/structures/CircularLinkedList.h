@@ -1,5 +1,4 @@
 // Implements a generic circular linked list using templates.
-// Tail connects back to head to allow continuous rotation.
 // Used for outfit rotation scheduling.
 
 #ifndef CIRCULARLINKEDLIST_H
@@ -12,11 +11,11 @@ using namespace std;
 template <typename T>
 class CircularLinkedList {
 private:
-    Node<T>* head;
+    Node<T>* head; //points to first node
     int count;
 
 public:
-    CircularLinkedList() : head(nullptr), count(0) {}
+    CircularLinkedList() : head(nullptr), count(0) {} // constructor initializes an empty list
 
     ~CircularLinkedList() {
         while (!isEmpty()) {
@@ -24,6 +23,7 @@ public:
         }
     }
 
+    //insert a new value
     void insert(T value) {
         Node<T>* newNode = new Node<T>(value);
         
@@ -41,6 +41,7 @@ public:
         count++;
     }
 
+    //remove value
     void removeCurrent() {
         if (head == nullptr) return;
         

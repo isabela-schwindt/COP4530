@@ -28,13 +28,14 @@ public:
         if (head == nullptr) {
             head = tail = newNode;
         } else {
-            tail->next = newNode;
-            newNode->prev = tail;
-            tail = newNode;
+            tail->next = newNode; //link current tail to new node
+            newNode->prev = tail; //set previous pointer
+            tail = newNode; //update tail
         }
-        count++;
+        count++; //increase size
     }
 
+    //prints elements head to tail
     void displayForward() const {
         Node<T>* temp = head;
         while (temp != nullptr) {
@@ -44,6 +45,7 @@ public:
         cout << "NULL" << endl;
     }
 
+    //prints elements tail to head
     void displayBackward() const {
         Node<T>* temp = tail;
         while (temp != nullptr) {
@@ -59,6 +61,7 @@ public:
         Node<T>* temp = tail;
         tail = tail->prev;
 
+        //if list is not empty after removal 
         if (tail != nullptr) {
             tail->next = nullptr;
         } else {
@@ -69,14 +72,17 @@ public:
         count--;
     }
 
+    //return true if the list has no elements 
     bool isEmpty() const {
         return count == 0;
     }
 
+    //return number of elements in the list 
     int size() const {
         return count;
     }
 
+    //delets all nodes in the list 
     void clear() {
         while (head != nullptr) {
             Node<T>* temp = head;
